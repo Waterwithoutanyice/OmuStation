@@ -132,7 +132,7 @@ public sealed class PryingSystem : EntitySystem
 
         if (comp != null || Resolve(user, ref comp, false))
         {
-            canev = new BeforePryEvent(user, comp.PryPowered, comp.Force, true);
+            canev = new BeforePryEvent(user, comp.PryPowered, comp.Force, true, comp.CanPryPoweredFirelocks); // omu edit - prybars
         }
         else
         {

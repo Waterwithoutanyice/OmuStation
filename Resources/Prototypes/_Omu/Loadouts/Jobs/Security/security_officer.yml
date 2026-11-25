@@ -10,6 +10,17 @@
   equipment:
     jumpsuit: ClothingUniformBlackRedSecUniform
 
+# Eyes
+- type: loadout
+  id: SecurityGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: SecurityVisor
+  equipment:
+    eyes: ClothingEyesVisorSecurity
+
 #Belt
 - type: loadout
   id: SecuritySwordBelt
@@ -73,24 +84,3 @@
     - PowerCellIRRevolver
     - PowerCellIRRevolver
   groupBy: "Main weapon"
-
-#Detective
-- type: loadout
-  id: DetectiveWeaponRevolverInspector
-  dummyEntity: WeaponRevolverInspector
-  equipment:
-    belt: ClothingBeltHolsterFilled # Has revolver + ammo inside
-  groupBy: "Main weapon"
-
-- type: loadout
-  id: DetectiveClothingEyesGlassesSecurity
-  equipment:
-    eyes: ClothingEyesGlassesSecurity
-  groupBy: "Detective eyes"
-
-- type: loadout
-  id: DetectiveClothingEyesGlassesNoir
-  equipment:
-    eyes: ClothingEyesGlassesNoir
-  groupBy: "Detective eyes"
-

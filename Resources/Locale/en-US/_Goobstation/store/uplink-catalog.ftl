@@ -88,7 +88,8 @@ uplink-pressure-modkit-name = Pressure Modkit
 uplink-pressure-modkit-desc = This illegal modkit takes 30 capacity of your proto-kinetic accelerator and overclocks it to deal full damage even in unsuitable pressure.
 
 uplink-grey-tide-name = Grey Tide
-uplink-grey-tide-desc = An ancient artifact with magical properties. Identical to plasma spear but capable of summoning illusions upon hitting living mob if wielder is an Assistant.
+#omu edit
+uplink-grey-tide-desc = A bundle containing an ancient artifact with magical properties. It's identical to a plasma spear but capable of summoning illusions upon hitting living mobs if the wielder is wearing a cursed gas mask (also included).
 
 uplink-adv-mimery-name = Guide to Advanced Mimery Series
 uplink-adv-mimery-desc = The classical two part series on how to further hone your mime skills. Upon studying the series, the user should be able to make 3x1 invisible walls, and shoot bullets out of their fingers.
@@ -338,7 +339,7 @@ uplink-capoeira-name = Capoeira Manual
 uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-destructing. Capoeira focuses on swift attacks that link into flowing combos, with each move faster and harder than the last one, fueled by relentless momentum.
 
 uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
-uplink-sleeping-carp-desc = This single-use scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
+uplink-sleeping-carp-desc = This single-use scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, effortlessly dodging ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
 
 
 # Misc

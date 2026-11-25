@@ -2,7 +2,9 @@
 # TODO: make more categories
 # Guns
 
-# goob edit - FUCK NEWSTORE
+# goob edit
+# - all costs are 5x before rebalancing
+# - discounts are removed as they are done procedurally
 
 - type: listing
   id: UplinkPistolViper
@@ -80,7 +82,6 @@
   productEntity: EnergySword
   cost:
     Telecrystal: 37 # goob - desword is 74
-  saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
   #Goobstation
@@ -1531,7 +1532,7 @@
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 30 # 40 # goob # Omu, reduce price due to nerfs
   categories:
     - UplinkImplants
   conditions:
@@ -2394,7 +2395,7 @@
   icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
   productEntity: CaneSheathFilled
   cost:
-    Telecrystal: 40 # E-sword sidegrade - goob
+    Telecrystal: 25 # E-sword DOWNGRADE - Omu
   categories:
   - UplinkJob
   conditions:

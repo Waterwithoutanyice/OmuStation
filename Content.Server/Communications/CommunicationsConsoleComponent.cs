@@ -32,7 +32,7 @@ namespace Content.Server.Communications
         /// <summary>
         /// Announcement color
         /// </summary>
-        [ViewVariables]
+        //[ViewVariables] // Omu, drop read-only permissions
         [DataField]
         public Color Color = Color.Gold;
 
@@ -81,5 +81,12 @@ namespace Content.Server.Communications
         /// What alert level to set it to if the console is emagged.
         /// </summary>
         [DataField] public string AlertLevelOnEmag = "honk";
+
+        /// <summary>
+        /// OMU
+        /// Allows the console to bypass the amber lockout
+        /// </summary>
+        [DataField]
+        public bool CanBypassAmberLock = false;
     }
 }

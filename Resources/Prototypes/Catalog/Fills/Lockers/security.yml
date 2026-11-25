@@ -63,7 +63,8 @@
   id: FillLockerWardenHarduit
   table: !type:AllSelector
     children:
-    - id: ClothingOuterHardsuitWarden
+    #- id: ClothingOuterHardsuitWarden # Omu
+    - id: UndeterminedVoidsuitWarden # Omu
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
 
@@ -93,7 +94,7 @@
       prob: 0.5
     - id: ClothingEyesGlassesSecurity
     # - id: ClothingHeadsetSecurity, Goob, over ear headsets
-    - id: ClothingHandsGlovesColorBlack
+    #- id: ClothingHandsGlovesColorBlack # Omu - replaced by retrieval gloves from Trauma
     - id: ClothingShoesBootsJack
     - id: WeaponMeleeNeedle
       prob: 0.1
@@ -102,7 +103,7 @@
     - id: BookSpaceLaw
       prob: 0.5
     - id: ClothingHeadsetAltSecurityRegular # Goobstation
-    - id: PanicButton # Goobstation
+    #- id: PanicButton # Goobstation | Omu - moved this to cargo
     - id: PepperSpray # Goobstation
     # Goobstation - Martial Arts - start
     - !type:GroupSelector
@@ -143,7 +144,7 @@
     - id: BoxSyringe
     - id: BoxBodyBag
       # Goob end
-    #- id: ClothingOuterHardsuitBrigmedic # Omu, use selector instead
+    #- id: UndeterminedVoidsuitBrigMed # Omu, we have our own selector.
     - id: ClothingUniformJumpskirtOfLife
       prob: 0.1
 
@@ -278,9 +279,9 @@
   table: !type:AllSelector
     children:
     - id: WeaponRifleLecter
-      amount: 2
+      amount: 3
     - id: MagazineRifle
-      amount: 4
+      amount: 6
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
@@ -297,9 +298,9 @@
   table: !type:AllSelector
     children:
     - id: WeaponSubMachineGunDrozd
-      amount: 2
+      amount: 3
     - id: MagazinePistolSubMachineGun
-      amount: 4
+      amount: 6
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
@@ -336,8 +337,9 @@
     children:
     - id: WeaponShotgunKammerer
       amount: 2
+    - id: WeaponShotgunEnforcer
     - id: BoxLethalshot
-      amount: 4
+      amount: 6
 
 - type: entity
   id: GunSafeSubMachineGunWt550

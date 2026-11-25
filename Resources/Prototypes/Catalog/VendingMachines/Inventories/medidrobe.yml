@@ -31,8 +31,11 @@
     ClothingHeadHatSurgcapBlue: 4
     ClothingHeadHatSurgcapPurple: 4
     ClothingShoesBootsWinterMed: 2
+    ClothingArmbandMed: 2 # omu
   contrabandInventory:
     ClothingUniformJumpskirtOfLife: 1
     ToyFigurineMedicalDoctor: 1
     ToyFigurineParamedic: 1
     ToyFigurineChiefMedicalOfficer: 1
+  emaggedInventory:
+    ClothingOuterCoatAMG: 1 # Omu

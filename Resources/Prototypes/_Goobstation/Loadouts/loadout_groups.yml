@@ -363,6 +363,15 @@
   loadouts:
   - AtmosEnvirogloves
 
+- type: loadoutGroup
+  id: AtmosphericTechnicianBelt
+  minLimit: 1
+  maxLimit: 1
+  name: loadout-group-atmospheric-technician-belt
+  loadouts:
+  - AtmosphericTechnicianUtilityBelt
+  - AtmosphericTechnicianAtmosBelt
+
 # Chief Engineer
 
 - type: loadoutGroup
@@ -964,6 +973,7 @@
   - NanotrasenRepresentativeOutlaw
   - NanotrasenRepresentativeMAA
   - CentcommHeadHatKepi # Omu
+  - CorporateComplianceHeadHatCap # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
@@ -972,6 +982,7 @@
   loadouts:
   - ClothingNeckScarfStripedCentcom
   - NanotrasenRepresentativeEnsemble
+  - NanotrasenRepresentativeOffcoat # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
@@ -981,6 +992,7 @@
   - NanotrasenRepresentativeSatchel
   - NanotrasenRepresentativeDuffel
   - NanotrasenRepresentativeMessenger
+  - NanotrasenRepresentativeLeatherSatchel # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeJumpsuit
@@ -991,8 +1003,11 @@
   - NTRMJ
   - NanotrasenRepresentativeFancyJumpsuit
   - CentcommTurtleneck #Omu
+  - CCAgentPencilSkirt #Omu
   - CCAgentJumpsuit #Omu
   - CCAgentJumpskirt #Omu
+  - CCAgentBlackJumpsuit # Omu
+  - CCAgentBlackJumpskirt # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeBelt
@@ -1009,6 +1024,7 @@
   - LaceupShoes
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+  - NanotrasenRepresentativeHeelBoots # Omu
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeJobTrinkets
@@ -1021,6 +1037,7 @@
   name: loadout-group-ntr-gloves
   loadouts:
   - NanotrasenRepresentativeGloves
+  - HoPGloves # Omu - papercut-proof gloves
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeEnvirohelm
@@ -1109,6 +1126,7 @@
   - BlueshieldOfficerOuterBlueshieldMantle
   - BlueshieldOfficerOuterBlueshieldMantleBlack # Omu
   - BlueShieldEliteCloak # Omu - Starlight Port
+  - BlueshieldOfficerOffcoat # Omu
   - BlueshieldOfficerEnsemble
 
 - type: loadoutGroup
@@ -1353,9 +1371,17 @@
   id: RoboticistBackpack
   name: loadout-group-roboticist-backpack
   loadouts:
-  - ScientistBackpack
-  - ScientistSatchel
-  - ScientistDuffel
+  # - ScientistBackpack # Omu
+  # - ScientistSatchel # Omu
+  # - ScientistDuffel # Omu
+  - RoboticistBackpack # Omu
+  - RoboticistBackpackSatchel # Omu
+  - RoboticistBackpackDuffel # Omu
+  - RoboticistBackpackMessenger # Omu
+  - RoboticistScientistBackpack # Omu
+  - RoboticistScientistBackpackSatchel # Omu
+  - RoboticistScientistBackpackDuffel # Omu
+  - RoboticistScientistBackpackMessenger # Omu
 
 - type: loadoutGroup
   id: RoboticistOuterClothing
@@ -1440,6 +1466,7 @@
   - ChemistNurseHat # Starlight - OMU port
   - ChemistTruckersHat # Starlight - OMU port
   - ChemistFisherCap # Starlight - OMU port
+  - UshankaChemist # Omu
 
 - type: loadoutGroup
   id: ChemistEnvirohelm
@@ -1544,6 +1571,7 @@
   - CorpsmanVeteranHeadHatKepi # Omu
   - CorpsmanNurseHat # Starlight
   - BrigmedicNurseHatOfLife # Starlight
+  - BrigmedicUshanka # Omu
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
@@ -1789,6 +1817,8 @@
   - SalvageSpecialistJumpskirt
   - SalvageSpecialistOveralls
   - SalvageSpecialistMJ
+  - VintageShaftMinerJumpsuit # Omu
+  - SalvageJumpskirt # Omu
 
 - type: loadoutGroup
   id: ShaftMinerJumpsuit

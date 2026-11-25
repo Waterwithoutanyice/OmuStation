@@ -296,22 +296,5 @@
   components:
   - type: Contraband
     allowedDepartments: [ Engineering ]
-    allowedJobs: [ Paramedic ]
-
-- type: entity
-  id: BaseEngineeringScienceBSOBridmedicContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Engineering, Science ]
-    allowedJobs: [ Brigmedic, BlueshieldOfficer ]
-
-- type: entity
-  id: BaseEngineeringScienceContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ Engineering, Science ]
+    allowedJobs: [ Paramedic , BlueshieldOfficer, Brigmedic ] # Omu - Add BSO and Brigmedic.
 # Omustation end

@@ -6,6 +6,8 @@
   name: man-machine interface
   description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
   components:
+  - type: VoiceChatEffect # Goobstation - Voice chat
+    effect: Robot
   - type: Sprite
     sprite: Objects/Specific/Robotics/mmi.rsi
     layers:
@@ -24,22 +26,21 @@
         - Brain
         tags: # EE Reverse MMI - EE apparently changed this comp to tags as well? fuck it sure.
         - Brain
+      blacklist: # Omu
+        components:
+        - MMI
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
+  - type: IntellicardableMind # Goobstation - we can finally turn clankers into humans
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
   - type: ActiveRadio
     channels:
-    - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+    - Binary
     - Common
-  # Goobstation
-  #- type: CollectiveMind # Omu, make binary a radio again.
-  #  defaultChannel: Binary
-  #  channels:
-  #  - Binary
   - type: NameIdentifier
     group: MMI
   - type: DoAfter
@@ -90,6 +91,9 @@
         - Brain
         tags: # Omu
         - Brain
+      blacklist: # Omu
+        components:
+        - MMI
 
 - type: entity
   parent: BaseItem
@@ -97,6 +101,8 @@
   name: positronic brain
   description: An artificial brain capable of spontaneous neural activity.
   components:
+    - type: VoiceChatEffect # Goobstation - Voice chat
+      effect: Robot
     - type: Sprite
       sprite: Objects/Specific/Robotics/mmi.rsi
       layers:
@@ -138,16 +144,11 @@
     - type: IntrinsicRadioReceiver
     - type: IntrinsicRadioTransmitter
       channels:
-      - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+      - Binary
     - type: ActiveRadio
       channels:
-      - Binary # Goobstation - replaced with collective mind # Omu, make binary a radio again.
+      - Binary
       - Common
-    # Goobstation
-    #- type: CollectiveMind # Omu, make binary a radio again.
-    #  defaultChannel: Binary
-    #  channels:
-    #  - Binary
     - type: NameIdentifier
       group: PositronicBrain
     - type: DoAfter

@@ -91,8 +91,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
-    [Dependency] private readonly TagSystem _tag = default!; // Omu
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly TagSystem _tag = default!; // Omu
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -107,6 +107,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         InitializeDragon();
         InitializeNinjutsu();
         InitializeHellRip();
+        InitializeWrestling(); // Omu
         InitializeCanPerformCombo();
 
         SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComponentShutdown>(OnShutdown);
@@ -232,6 +233,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             // So that it doesn't update constantly
             timer.LastMoveTime = _timing.CurTime;
         }
+
+        UpdateWrestling(); // Omu
     }
 
     #region Event Methods

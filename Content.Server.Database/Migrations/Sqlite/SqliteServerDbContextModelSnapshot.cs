@@ -862,6 +862,36 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("job", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.JobAlternateTitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("job_alternate_title_id");
+
+                    b.Property<string>("AlternateTitle")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("alternate_title");
+
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("job_name");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_job_alternate_title");
+
+                    b.HasIndex("ProfileId", "JobName")
+                        .IsUnique();
+
+                    b.ToTable("job_alternate_title", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
                 {
                     b.Property<int>("Id")
@@ -944,6 +974,35 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("player", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerJobPriority", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("player_job_priority_id");
+
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("job_name");
+
+                    b.Property<int>("PreferenceId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("preference_id");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("priority");
+
+                    b.HasKey("Id")
+                        .HasName("PK_player_job_priority");
+
+                    b.HasIndex("PreferenceId", "JobName")
+                        .IsUnique();
+
+                    b.ToTable("player_job_priority", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Poll", b =>
@@ -1129,6 +1188,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("construction_favorites");
 
+                    b.Property<int>("PreferenceUnavailable")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("preference_unavailable");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -1152,6 +1215,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
                         .HasColumnName("profile_id");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("active");
 
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER")
@@ -1209,6 +1276,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("position");
 
                     b.Property<int>("PreferenceId")
                         .HasColumnType("INTEGER")
@@ -1332,6 +1403,36 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("ProfileId");
 
                     b.ToTable("profile_role_loadout", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_speech_replacement_id");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.Property<string>("Replacement")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("replacement");
+
+                    b.Property<string>("Word")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("word");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_speech_replacement");
+
+                    b.HasIndex("ProfileId", "Word")
+                        .IsUnique();
+
+                    b.ToTable("profile_speech_replacement", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RMCDiscordAccount", b =>
@@ -2168,6 +2269,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.JobAlternateTitle", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("JobAlternateTitles")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_job_alternate_title_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
                     b.OwnsOne("Content.Server.Database.TypedHwid", "LastSeenHWId", b1 =>
@@ -2197,6 +2310,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                         });
 
                     b.Navigation("LastSeenHWId");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PlayerJobPriority", b =>
+                {
+                    b.HasOne("Content.Server.Database.Preference", "Preference")
+                        .WithMany("JobPriorities")
+                        .HasForeignKey("PreferenceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_player_job_priority_preference_preference_id");
+
+                    b.Navigation("Preference");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Poll", b =>
@@ -2320,6 +2445,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_profile_role_loadout_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileSpeechReplacement", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("SpeechReplacements")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_speech_replacement_profile_profile_id");
 
                     b.Navigation("Profile");
                 });
@@ -2610,6 +2747,8 @@ namespace Content.Server.Database.Migrations.Sqlite
 
             modelBuilder.Entity("Content.Server.Database.Preference", b =>
                 {
+                    b.Navigation("JobPriorities");
+
                     b.Navigation("Profiles");
                 });
 
@@ -2617,9 +2756,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     b.Navigation("Antags");
 
+                    b.Navigation("JobAlternateTitles");
+
                     b.Navigation("Jobs");
 
                     b.Navigation("Loadouts");
+
+                    b.Navigation("SpeechReplacements");
 
                     b.Navigation("Traits");
                 });

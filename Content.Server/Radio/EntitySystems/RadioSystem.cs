@@ -25,6 +25,7 @@ using Content.Shared.Chat.RadioIconsEvents; // Goobstation
 using Content.Shared.Whitelist; // Goobstation
 using Content.Shared.StatusIcon; // Goobstation
 using Content.Goobstation.Shared.Radio; // Goobstation
+using Content.Shared._Starlight.Radio.Components; // Starlight
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -188,6 +189,14 @@ public sealed partial class RadioSystem : EntitySystem
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
 
+        // Starlight start
+        if (TryComp<RadioChimeComponent>(radioSource, out var chime))
+        {
+            msg.Chime = chime.Sound;
+            notUdsMsg.Chime = chime.Sound;
+        }
+        // Starlight end
+
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
         RaiseLocalEvent(ref sendAttemptEv);
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
@@ -301,6 +310,46 @@ public sealed partial class RadioSystem : EntitySystem
             ("language", languageDisplay));
     }
     // Einstein Engines - Language end
+
+    // Goobstation - Voice chat
+    public void GetVoiceReceivers(EntityUid radioSource, RadioChannelPrototype channel, List<EntityUid> receivers)
+    {
+        var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
+        RaiseLocalEvent(ref sendAttemptEv);
+        RaiseLocalEvent(radioSource, ref sendAttemptEv);
+        if (sendAttemptEv.Cancelled)
+            return;
+
+        var sourceMapId = Transform(radioSource).MapID;
+        var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
+        var sourceServerExempt = _exemptQuery.HasComp(radioSource);
+
+        var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
+        while (radioQuery.MoveNext(out var receiver, out var radio, out var transform))
+        {
+            if (!radio.ReceiveAllChannels)
+            {
+                if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
+                                                             !intercom.SupportedChannels.Contains(channel.ID)))
+                    continue;
+            }
+
+            if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive
+                && !(HasActiveTransmitter(transform.MapID) && HasActiveTransmitter(sourceMapId)))
+                continue;
+
+            if (!channel.LongRange && !sourceServerExempt && !hasActiveServer)
+                continue;
+
+            var attemptEv = new RadioReceiveAttemptEvent(channel, radioSource, receiver);
+            RaiseLocalEvent(ref attemptEv);
+            RaiseLocalEvent(receiver, ref attemptEv);
+            if (attemptEv.Cancelled)
+                continue;
+
+            receivers.Add(receiver);
+        }
+    }
 
     /// <inheritdoc cref="TelecomServerComponent"/>
     public bool HasActiveServer(MapId mapId, string channelId) // Omu: made this public; "DeltaV - we need this"

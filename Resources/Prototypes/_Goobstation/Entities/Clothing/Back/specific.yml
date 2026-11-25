@@ -70,7 +70,7 @@
       - id: Zipties
       - id: Zipties
       - id: MedkitAdvancedFilled
-      - id: WeaponPistolEchis
+      - id: WeaponPistolMk58
       - id: Flash
 
 - type: entity
@@ -168,7 +168,7 @@
   - type: Item
     size: Ginormous
   - type: Clothing
-    slots: BACK
+    slots: BACK, SUITSTORAGE # Omu
     sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
   - type: SolutionAmmoProvider
     solutionId: tank

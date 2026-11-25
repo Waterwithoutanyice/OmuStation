@@ -43,3 +43,158 @@
     - item: PinpointerSyndicateNuclear
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-medical-beam-module }
+
+- type: entity
+  id: BorgModulePostal
+  parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
+  name: postal cyborg module
+  description: A module containing equipment for mail delivery
+  components:
+  - type: Sprite
+    layers:
+    - state: cargo
+    - state: icon-postal
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - hand:
+        emptyRepresentative: Paper
+        whitelist:
+          components:
+          - Delivery
+          tags:
+          - Paper
+          - Document
+          - BoxCardboard
+          - Folder
+    - hand:
+        emptyRepresentative: Paper
+        whitelist:
+          components:
+          - Delivery
+          tags:
+          - Paper
+          - Document
+          - BoxCardboard
+          - Folder
+    - hand:
+        emptyRepresentative: Paper
+        whitelist:
+          components:
+          - Delivery
+          tags:
+          - Paper
+          - Document
+          - BoxCardboard
+          - Folder
+    - item: MailBag
+    - item: MailBag
+  - type: BorgModuleIcon
+    icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: postal-module }
+
+- type: entity
+  id: BorgModuleAdvancedThruster
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: advanced thruster cyborg module
+  description: New and improved jetpack supported EVA module for cyborg units. Jetpack not included.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-jetpack
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: BorgHandheldGPSBasic
+    - item: HandheldStationMapUnpowered
+    - item: HandHeldMassScannerBorg
+    - hand:
+        emptyRepresentative: JetpackMiniFilled
+        whitelist:
+          components:
+          - Jetpack
+  - type: BorgModuleIcon
+    icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: thruster-module }
+
+- type: entity
+  id: BorgModuleAdvancedMusique
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: advanced musique cyborg module
+  description: Advanced service module for the most musical cyborgs! Comes with a built-in digital audio workstation that can play any instrument.
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-musique-adv
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: DawInstrumentBorg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: musical-module }
+
+- type: entity
+  id: BorgModuleParamedic # todo: reuse when med refactor is finished
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: paramedic cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-paramedic
+      sprite: _Omu/Objects/Specific/Robotics/borgmodule.rsi
+  - type: ItemBorgModule
+    hands:
+    - item: HandheldHealthAnalyzer
+    - item: HandheldCrewMonitorBorg
+    - hand:
+        emptyRepresentative: RollerBedSpawnFolded
+        whitelist:
+          tags:
+          - BodyBag
+          - RollerBed
+    - item: ParamedHypo
+    - item: EmergencyMedipen
+      hand:
+        emptyRepresentative: EmergencyMedipen
+        whitelist: # Same whitelist as syringe case
+          tags:
+          - Bottle
+          - CentrifugeCompatible
+          - Dropper
+          - Syringe
+          - Medipen
+          - AutoinjectorCartridge
+    - item: SyringeCase
+    - hand: # Same hands from surgery modules to hold parts that gotten blown off or what have you
+        emptyRepresentative: BioSynthHeart
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ
+          - TissueSample
+          tags:
+          - Organ
+    - hand:
+        emptyRepresentative: BioSynthHeart
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ
+          - TissueSample
+          tags:
+          - Organ
+    - hand:
+        emptyRepresentative: BioSynthHeart
+        emptyLabel: borg-slot-organs-empty-goob
+        whitelist:
+          components:
+          - BodyPart
+          - Organ
+          - TissueSample
+          tags:
+          - Organ
+  - type: BorgModuleIcon
+    icon: { sprite: _Omu/Interface/Actions/actions-borg.rsi, state: paramedic_module }
